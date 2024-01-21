@@ -2,7 +2,7 @@ import json, logging, pyodbc, os
 import azure.functions as func
 
 
-connection_string: str = os.environ["DATABASE_CONNECTION_STRING"]
+# connection_string: str = os.environ["DATABASE_CONNECTION_STRING"]
 app = func.FunctionApp(http_auth_level=func.AuthLevel.ANONYMOUS)
 
 hasContactedDatabase = False
@@ -38,4 +38,3 @@ def getQuotes(req: func.HttpRequest) -> func.HttpResponse:
       }]
       hasContactedDatabase = True
     return func.HttpResponse(json.dumps(quotesArr))
-   
